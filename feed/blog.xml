@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Jack Tomaszewski - full-stack freelance web developer</title>
+    <link>https://jtom.me</link>
+    <description>Full-stack web developer. Working as a freelancer, currently specialized in Ruby on Rails, AngularJS &amp; Ionic Framework. Always looking for interesting projects.</description>
+    <pubDate>Mon, 20 Oct 2014 00:44:00 +0200</pubDate>
+    <item>
+      <title>CoffeeScript is not that bad</title>
+      <link>https://jtom.me/blog/coffeescript-is-not-that-bad/</link>
+      <description><![CDATA[It’s been more than 1 year since I started dating CoffeeScript.
+
+Before that, I’ve been developing in native HTML, CSS, JS, PHP languages for long, but later, (propably when I met Ruby on Rails for the 1st time) I instantly learned and loved code syntaxes in which:
+
+
+  logic flow is usually controlled by indentation, not braces;
+  braces, parentheses and semicolons may be skipped;
+  in overall, those code syntaxes enable you to write code in still readable way, but much, much faster
+
+
+Jade/HAML, SASS/LESS/Stylus, CoffeeScript, Ruby syntaxes all fit in that. And well, I fell in love with them!
+
+]]></description>
+      <pubDate>Mon, 20 Oct 2014 00:44:00 +0200</pubDate>
+      <guid>https://jtom.me/blog/coffeescript-is-not-that-bad/</guid>
+      <content:encoded><![CDATA[<p>It’s been more than 1 year since I started dating CoffeeScript.</p>
+
+<p>Before that, I’ve been developing in native HTML, CSS, JS, PHP languages for long, but later, (propably when I met Ruby on Rails for the 1st time) I instantly learned and loved code syntaxes in which:</p>
+
+<ul>
+  <li>logic flow is usually controlled by indentation, not braces;</li>
+  <li>braces, parentheses and semicolons may be skipped;</li>
+  <li>in overall, those code syntaxes enable you to write code in still readable way, but much, much faster</li>
+</ul>
+
+<p>Jade/HAML, SASS/LESS/Stylus, CoffeeScript, Ruby syntaxes all fit in that. And well, I fell in love with them!</p>
+
+<!-- more -->
+
+<p>Just look at those examples:</p>
+
+<div class="highlight"><pre><code class="language-jade"><span class="c">// Jade</span>
+<span class="nc">.home-section</span>
+  <span class="nc">.home-section-inner</span>
+    <span class="nc">.home-heading</span> Hi, I&#39;m Jack.
+    <span class="nc">.home-subheading</span>
+      | I am a freelance web developer specialized in 
+      <span class="nt">strong</span> front-end and back-end web development
+      | .</code></pre></div>
+
+<p>vs</p>
+
+<div class="highlight"><pre><code class="language-html"><span class="c">&lt;!-- HTML --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;home-section&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;home-section-inner&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;home-heading&quot;</span><span class="nt">&gt;</span>
+      Hi, I&#39;m Jack.
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;home-subheading&quot;</span><span class="nt">&gt;</span>
+      I am a freelance web developer specialized in
+      <span class="nt">&lt;strong&gt;</span>front-end and back-end web development<span class="nt">&lt;/strong&gt;</span>.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<p>or</p>
+
+<div class="highlight"><pre><code class="language-coffee"><span class="c1"># CoffeeScript</span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span> <span class="s">&quot;myapp&quot;</span>
+
+<span class="p">.</span><span class="nx">factory</span> <span class="s">&quot;UserRegistrationFormFactory&quot;</span><span class="p">,</span> <span class="nf">(FormFactory, UsersResource) -&gt;</span>
+  <span class="k">class</span> <span class="nx">UserRegistrationFormFactory</span> <span class="k">extends</span> <span class="nx">FormFactory</span>
+    <span class="nv">_createSubmitPromise: </span><span class="nf">-&gt;</span>
+      <span class="nx">UsersResource</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+        <span class="nv">email: </span><span class="nx">@user</span><span class="p">.</span><span class="nx">email</span>
+        <span class="nv">password: </span><span class="nx">@user</span><span class="p">.</span><span class="nx">password</span>
+      <span class="p">}).</span><span class="nx">$promise</span>
+
+    <span class="nv">onFailure: </span><span class="nf">(response) -&gt;</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span> <span class="k">if</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="o">?</span><span class="p">.</span><span class="nx">error</span><span class="o">?</span><span class="p">.</span><span class="nx">message</span></code></pre></div>
+
+<p>vs:</p>
+
+<div class="highlight"><pre><code class="language-js"><span class="c1">// JavaScript</span>
+<span class="kd">var</span> <span class="nx">myapp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">&quot;myapp&quot;</span><span class="p">);</span>
+
+<span class="nx">myapp</span><span class="p">.</span><span class="nx">factory</span><span class="p">(</span><span class="s2">&quot;UserRegistrationFormFactory&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">FormFactory</span><span class="p">,</span> <span class="nx">UsersResource</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">UserRegistrationFormFactory</span><span class="p">()</span> <span class="p">{};</span>
+
+  <span class="nx">UserRegistrationFormFactory</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">FormFactory</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+
+  <span class="nx">UserRegistrationFormFactory</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">_createSubmitPromise</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">UsersResource</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">password</span>
+    <span class="p">}).</span><span class="nx">$promise</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">UserRegistrationFormFactory</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">onFailure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span> <span class="o">===</span> <span class="s2">&quot;object&quot;</span> <span class="o">&amp;&amp;</span> <span class="k">typeof</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span> <span class="o">===</span> <span class="s2">&quot;object&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="nx">UserRegistrationFormFactory</span><span class="p">;</span>
+<span class="p">});</span></code></pre></div>
+
+<h3 id="there-is-more-than-one-way-to-do-it-but-which-is-the-correct-one">“There Is More Than One Way To Do It”, but which is the correct one?</h3>
+
+<p>However, after first weeks of development in Coffee &amp; Ruby I noticed one thing: the fact that those languages are <abbr title="There Is More Than One Way To Do It">TIMTOWTDI</abbr> doesn’t imply you can code in a whatever way you like (or even worse: every time in a different way). <strong>You should still obey some rules while coding in your hipster-beatiful language like Ruby or CoffeeScript.</strong> Of course, you can already find some of these rules in the internet - upon the name <em>Style Guide</em>:</p>
+
+<ul>
+  <li><a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a></li>
+  <li><a href="https://github.com/polarmobile/coffeescript-style-guide">CoffeeScript Style Guide</a></li>
+</ul>
+
+<p>Basically, <strong>every time you learn a new code syntax, the first thing you should do (after learning its’ manual), is to read its’ style guide.</strong> Having badly indented code, or having your <code>if/elses</code> formed in 15 different ways throughout your code, is one of the most silliest and childish mistakes you can make while coding.</p>
+
+<p>However, sometimes, (especially in CoffeeScript, because of <abbr title="There Is More Than One Way To Do It">TIMTOWTDI</abbr>), keeping to the style guide is just not enough, because you start to wonder:</p>
+
+<ul>
+  <li><em>Should I keep or skip those parentheses here?</em></li>
+  <li><em>Should these arguments be inline or extracted into a new line?</em></li>
+  <li><em>Should this callback function be extracted to a variable?</em></li>
+</ul>
+
+<p>Everytime you think about it, you lose ~5-60 seconds of your precious “coding-flow”. We don’t want that; we should avoid it to maximise our coding effectivness. </p>
+
+<p>I recommend obeying to one more, general, but very useful rule:</p>
+
+<blockquote>
+  <p>If you are thinking for more than 5 seconds about how to write a specific chunk of code, then</p>
+
+  <ul>
+    <li>propably it sucks and should be refactored</li>
+    <li>if it doesn’t suck, but isn’t verbose and readable enough: write it in a more verbose way (extract temporary calculations to variables; remove shortcuts; and eventually, add comments)</li>
+  </ul>
+</blockquote>
+
+<p>So, instead of complaining (<a href="http://ceronman.com/2012/09/17/coffeescript-less-typing-bad-readability/">[1]</a>, <a href="http://www.walkercoderanger.com/blog/2014/03/coffeescript-isnt-the-answer/">[2]</a>) that it’s impossible to write good, clean and readable code in CoffeeScript, please, use a style guide and e.g. use parentheses/braces whenever you feel the lack of them may confuse another developer in your team. </p>
+
+<p><strong>The fact that you can skip all the parentheses and braces in your .coffee code doesn’t mean you should always do that.</strong> It’s up to the programmer’s case, not to the language, to make the code readable. You can easily write unreadable code in C++ or Java also. That’s why you have style guides for them <a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.html">too</a>.</p>
+
+<h3 id="some-more-coffeescript-advices">Some more CoffeeScript advices</h3>
+
+<div class="highlight"><pre><code class="language-coffee"><span class="c1"># Apache Cordova API allowing you to take a picture with phone&#39;s camera</span>
+<span class="c1"># (from http://docs.phonegap.com/en/2.0.0/cordova_media_capture_capture.md.html)</span>
+<span class="c1">#</span>
+<span class="c1"># Usage example (JS):</span>
+<span class="c1"># navigator.device.capture.captureImage( </span>
+<span class="c1">#   CaptureCB captureSuccess, CaptureErrorCB captureError, [CaptureImageOptions options]</span>
+<span class="c1"># );</span>
+
+<span class="c1"># Bad .coffee code:</span>
+<span class="c1"># (unclear, hardly readable)</span>
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">capture</span><span class="p">.</span><span class="nx">captureImage</span> <span class="nf">(mediaFiles) -&gt;</span>
+  <span class="nx">savePictures</span><span class="p">(</span><span class="nx">mediaFiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">,</span> <span class="nf">(error) -&gt;</span>
+  <span class="nx">alert</span> <span class="s">&quot;an error occured!&quot;</span>
+<span class="p">,</span> <span class="nv">limit: </span><span class="mi">1</span>
+
+<span class="c1"># Better .coffee code:</span>
+<span class="c1"># 1. Surround callbacks with additional parentheses for better readability</span>
+<span class="c1"># 2. Surround {options} hash with additional curly braces</span>
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">capture</span><span class="p">.</span><span class="nx">captureImage</span><span class="p">(</span> <span class="p">(</span><span class="nf">(mediaFiles) -&gt;</span>
+  <span class="nx">savePictures</span><span class="p">(</span><span class="nx">mediaFiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">),</span> <span class="p">(</span><span class="nf">(error) -&gt;</span>
+  <span class="nx">alert</span> <span class="s">&quot;an error occured!&quot;</span>
+<span class="p">),</span> <span class="p">{</span><span class="nv">limit: </span><span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># Much better .coffee code:</span>
+<span class="c1"># 3. Extract callbacks to variables</span>
+<span class="nv">captureSuccess = </span><span class="nf">(mediaFiles) -&gt;</span>
+  <span class="nx">savePictures</span><span class="p">(</span><span class="nx">mediaFiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nv">captureError = </span><span class="nf">(error) -&gt;</span>
+  <span class="nx">alert</span> <span class="s">&quot;an error occured!&quot;</span>
+
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">capture</span><span class="p">.</span><span class="nx">captureImage</span><span class="p">(</span><span class="nx">captureSuccess</span><span class="p">,</span> <span class="nx">captureError</span><span class="p">,</span> <span class="p">{</span><span class="nv">limit: </span><span class="mi">1</span><span class="p">})</span>
+
+<span class="c1"># Note: Now, even if you skip parentheses and braces, it&#39;s still readable</span>
+<span class="nx">navigator</span><span class="p">.</span><span class="nx">device</span><span class="p">.</span><span class="nx">capture</span><span class="p">.</span><span class="nx">captureImage</span> <span class="nx">captureSuccess</span><span class="p">,</span> <span class="nx">captureError</span><span class="p">,</span> <span class="nv">limit: </span><span class="mi">1</span></code></pre></div>
+
+<h3 id="even-more-coffeescript-advices">Even more CoffeeScript advices</h3>
+
+<ul>
+  <li>don’t use <code>is</code>, <code>isnt</code>, <code>and</code>, <code>or</code> instead of <code>==</code>, <code>!=</code>, <code>&amp;&amp;</code>, <code>||</code>. In every code language I know we use the latter syntax, why we should act differently in Coffee? It doesn’t make our development faster/easier at all anyway.</li>
+  <li>generally, wrap function parameters in parentheses, unless it’s a generally used, 1-argument function, like <code>console.log "message"</code> or <code>setTimeout -&gt; (...)</code></li>
+  <li>
+    <p>generally, wrap objects in curly braces, unless it’s a nested object:</p>
+
+    <div class="highlight"><pre><code class="language-coffee"><span class="nx">$http</span><span class="p">({</span>
+  <span class="nv">url: </span><span class="nx">url</span>
+  <span class="nv">method: </span><span class="s">&quot;PATCH&quot;</span>
+  <span class="nv">params: </span>
+    <span class="nv">page: </span><span class="nx">page</span>
+    <span class="nv">auth_token: </span><span class="nx">Auth</span><span class="p">.</span><span class="nx">token</span>
+<span class="p">})</span></code></pre></div>
+  </li>
+  <li>don’t use fat arrows instead of a normal arrow, unless it’s really necessary</li>
+</ul>
+
+<h3 id="in-summary-tldr">In summary (TL;DR)</h3>
+
+<ul>
+  <li>CoffeeScript may lead you to unreadable code, especially in the beginning. </li>
+  <li>To prevent that, stick to a style guide; and write more verbosily when confused (f.e don’t skip parentheses/braces every possible time). </li>
+  <li>It’s untrue CoffeeScript can’t be used in a long-term, team-developed, open-source projects. Examples? <a href="https://atom.io">Atom</a>.</li>
+  <li>Check out also <a href="http://differential.io/blog/why-coffeescript">Ry Walker’s “Why CoffeeScript” blogpost</a> - I agree with him in 100%.</li>
+</ul>
+
+<h3 id="what-about-harmony">What about Harmony?</h3>
+
+<p>Obviously for me, CoffeeScript is a much better language to write in, than the current version of vanilla JavaScript (ES5).</p>
+
+<p>But what about the new version of JavaScript, “Harmony”, ECMAScript 6? It’s not implemented in the browsers yet, but you can already set automatic compiling of ES6 to ES5 with tools like Traceur, in a similar way as CoffeeScript.</p>
+
+<p>After short research, seems like ES6 would be a better alternative than Coffee for a new JS project, because:</p>
+
+<ul>
+  <li>ES6 is the future JavaScript, that we’re going to have in a couple of years - so eventually, everyone will need to learn it anyway, which isn’t true with Coffee (Coffee is just a temporary alternative);</li>
+  <li>ES6 has most of the CoffeeScript features, and even some more, like generator functions (<a href="http://www.wintellect.com/blogs/nstieglitz/5-great-features-in-es6-harmony">[3]</a>, <a href="http://www.mattgreer.org/articles/coffeescripts-time-is-waning/">[4]</a>).</li>
+</ul>
+
+<p>Looks like Harmony will be a good compromise for both vanilla-JS lovers and CoffeeScript hipsters. One thing still hurts me though: in ES6 I still need to write all the parentheses and semicolons. And I hate writing those <code>});</code> ! </p>
+
+<p>So, at least for now, I’ll stay with CoffeeScript.</p>
+
+<h4 id="links">Links</h4>
+
+<ul>
+  <li><a href="http://maximilianhoffmann.com/posts/maintainable-coffeescript">Maintainable CoffeeScript</a></li>
+  <li><a href="http://differential.io/blog/why-coffeescript">Why CoffeeScript</a></li>
+  <li><a href="http://ruoyusun.com/2013/03/17/my-take-on-coffeescript.html">My Take on CoffeeScript</a></li>
+  <li><a href="http://blog.gadr.me/the-arrow-matters/">Why the (CoffeeScript) arrow matters</a></li>
+</ul>
+
+]]></content:encoded>
+      <dc:date>2014-10-20T00:44:00+02:00</dc:date>
+    </item>
+    <dc:date>2014-10-20T00:44:00+02:00</dc:date>
+  </channel>
+</rss>
